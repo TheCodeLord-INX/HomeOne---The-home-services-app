@@ -1,0 +1,115 @@
+{% extends 'base.html' %}
+
+{% block title %} HomeOne - Book Service {% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="/static/user_home.css">
+{% endblock %}
+
+{% block content %}
+
+<div class="header">
+    <div class="nav-logo">
+        <h4>HomeOne</h4>
+    </div>
+    <div class="navbar">
+        <nav>
+            <ul>
+                <li>
+                    <a href="/user_home">Home</a>
+                </li>
+                <li>
+                    <a href="/find_service">Search</a>
+                </li>
+                <li>
+                    <a href="/home">Logout</a>
+                </li>
+                <li>
+                    <a href="/user_profile"><img class="profile-pic-header" src="https://freesvg.org/img/abstract-user-flat-4.png" alt="user_profile"></a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+
+<div class="container">
+    <div class="services_block">
+        <center>
+            <h3>Looking for a service?</h3>
+        </center>
+        <div class="services-grid">
+            {% for service in services %}
+            <div class="service-card">
+                <h4>
+                    <form action="{{ url_for('main.user_home' )}}" method="post">
+                        <a href="{{ url_for('main.find_service', search_query=service.name) }}" type="submit">{{ service.name }}</a>
+                    </form>
+                </h4>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="tables">
+        <center>
+            <h3>Service Requests</h3>
+        </center>
+        <div class="requests-table">
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <th>Service Name</th>
+                    <th>Assigned Professional (if any)</th>
+                    <th>Requested Date</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+                {% for service in booked_services %}
+                <tr>
+                    <td>{{ service.id }}</td>
+                    <td>{{ service.name }}</td>
+                    <td>{{ service.assigned_prof if service.assigned_prof else 'N/A' }}</td>
+                    <td>{{ service.reqDate.strftime('%Y-%m-%d') }}</td>
+                    <td>{{ service.status }}</td>
+                    <td>
+                        <form method="post">
+                            <input type="hidden" name="service_id" value="{{ service.id }}">
+                            {% if service.status != 'closed' %}
+                                <button type="submit" name="action" value="cancel">Cancel</button>
+                            {% else %}
+                                <button type="submit" name="action" value="cancel" style="background-color: grey; cursor: default;" disabled>Cancel</button>
+                            {% endif %}
+                        </form>
+                        <form method="post">
+                            <input type="hidden" name="service_id" value="{{ service.id }}">
+                            {% if service.status == 'accepted' %}
+                                <button type="submit" name="action" value="close"><a href="/service_remarks?service_id={{ service.id }}">Close it?</a></button>
+                            {% endif %}
+                            {% if service.status == 'closed' %}
+                                <button type="submit" name="action" value="edit"><a href="/service_remarks?service_id={{ service.id }}">Edit Remarks?</a></button>
+                            {% endif %}
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</div>
+<!-- <script>
+    document.querySelectorAll('.dynamic-link').forEach(link => {
+        link.addEventListener('click', function(event) {
+            event.preventDefault(); // Prevent default link behavior
+            const text = this.textContent.trim(); // Get the text inside the anchor tag
+            const baseUrl = window.location.origin + window.location.pathname; // Current base URL
+            window.history.pushState(null, '', `${baseUrl}/${text}`); // Update the URL
+        });
+    });
+    function updateUrl(header) {
+            const text = header.textContent.trim(); // Get the text inside the anchor tag
+            const baseUrl = "http://127.0.0.1:5000/find_service/";
+            const newUrl = baseUrl + `${text}`; // Construct the new URL
+            window.location.href = newUrl; // Redirect to the new URL
+        }
+</script> -->
+
+{% endblock %}

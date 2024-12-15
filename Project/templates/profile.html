@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% block title %} HomeOne - Profile {% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="/static/profile.css">
+{% endblock %}
+
+{% block content %}
+
+<div class="header">
+    <div class="nav-logo">
+        <h4>HomeOne</h4>
+    </div>
+    <div class="navbar">
+        <nav>
+            <ul>
+                <li>
+                    <a href="/user_home">Home</a>
+                </li>
+                <li>
+                    <a href="/find_service">Search</a>
+                </li>
+                <li>
+                    <a href="/login">Logout</a>
+                </li>
+                <li>
+                    <a href="/user_profile"><img class="profile-pic-header" src="https://freesvg.org/img/abstract-user-flat-4.png" alt="user_profile"></a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+
+<div class="profile-container">
+    <div class="profile-header">
+        <img src="https://freesvg.org/img/abstract-user-flat-4.png" alt="Profile Picture" class="profile-pic">
+        <h1 class="profile-name">{{ user_details.name }}</h1>
+        <p class="profile-username">@{{ user_details.username }}</p>
+    </div>
+    <div class="profile-details">
+        <div class="detail-item">
+            <span class="detail-label">Name</span>
+            <span class="detail-value">
+                <form action="{{ url_for('main.user_profile') }}" method="post">
+                    <input type="hidden" name="field" value="name">
+                    <input type="text" name="value"  value="{{ user_details.name }}">
+                    <button class="edit-icon" type="submit">✎</button>
+                </form>
+            </span>
+        </div>
+        <div class="detail-item">
+            <span class="detail-label">Username</span>
+            <span class="detail-value">
+                <form action="{{ url_for('main.user_profile') }}" method="post">
+                    <input type="hidden" name="field" value="username">
+                    <input type="text" name="value" value="{{ user_details.username }}">
+                    <button class="edit-icon" type="submit">✎</button>
+                </form>
+            </span>
+        </div>
+        <div class="detail-item">
+            <span class="detail-label">Address</span>
+            <span class="detail-value">
+                <form action="{{ url_for('main.user_profile') }}" method="post">
+                     <input type="hidden" name="field" value="address">
+                    <input type="text" name="value" value="{{ user_details.address }}">
+                    <button class="edit-icon" type="submit">✎</button>
+                </form>
+            </span>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

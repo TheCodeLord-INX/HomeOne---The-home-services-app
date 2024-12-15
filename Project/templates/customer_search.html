@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block title %} HomeOne - Find Service {% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="/static/customer_search.css">
+{% endblock %}
+
+{% block content %}
+<div class="header">
+    <div class="nav-logo">
+        <h4>HomeOne</h4>
+    </div>
+    <div class="navbar">
+        <nav>
+            <ul>
+                <li>
+                    <a href="/user_home">Home</a>
+                </li>
+                <li>
+                    <a href="/find_service">Search</a>
+                </li>
+                <li>
+                    <a href="/home">Logout</a>
+                </li>
+                <li>
+                    <a href="/user_profile"><img class="profile-pic-header" src="https://freesvg.org/img/abstract-user-flat-4.png" alt="user_profile"></a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+<div class="container">
+    <div class="search-bar">
+        <label for="search">Search by :</label>
+        <form action="{{ url_for('main.find_service') }}" method="post">
+            <input type="text" name="search_query" placeholder="Service name/Pin code/...">
+            <button type="submit">Search</button>
+        </form>
+        <span>Example: Plumbing</span>
+    </div>
+    <div class="packages">
+        {% for service in services %}
+        <h2>Best {{ service.name }} Packages</h2>
+        <div class="package-item">
+            <div class="package-info">
+                <span> Name: {{ service.name }}, Price: {{ service.bp }}, Description: {{ service.desc }}, Ratings: {{ service.rating }}, Pincode: {{ service.pin }}, Location: {{ service.location }} </span>
+            </div>
+            <form action="{{ url_for('main.find_service') }}" method="post">
+                <input type="hidden" name="service_id" value="{{ service.id }}">
+                <button type="submit" onclick="setTimeout()" class="book-btn">Book</button>
+            </form>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

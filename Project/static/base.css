@@ -1,0 +1,166 @@
+body {
+    background-color: #121212;
+    color: #e0e0e0;
+    font-family: "Montserrat Alternates", sans-serif;
+    margin-top: 5vh;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="address"],
+select {
+    background-color: #2c2c2c;
+    border: 1px solid #444;
+    border-radius: 4px;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    color: #e0e0e0;
+    font-size: 1rem;
+    font-family: 'Fira Code';
+    width: calc(100% - 1.5rem);
+}
+
+button {
+    background-color: #6200ea;
+    border: none;
+    border-radius: 4px;
+    margin-top: 1rem;
+    padding: 0.75rem;
+    color: #ffffff;
+    font-size: 1rem;
+    cursor: pointer;
+    font-family: 'Fira Code';
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #3700b3;
+}
+
+.flash-message {
+    background-color: #b00020;
+    color: #ffffff;
+    padding: 0.75rem;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    text-align: center;
+    width: 100%;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.header {
+    background-color: #121212;
+    width: 98vw;
+    height: 5vh;
+    padding: 1rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 10px;
+    position: fixed;
+    top: 0;
+    margin-bottom: 2rem;
+    z-index: 100;
+    font-family: 'Righteous', sans-serif;
+}
+
+.nav-logo {
+    margin-left: 3rem;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    padding: 0;
+    margin-right: 1rem;
+    margin-left: 1rem;
+}
+
+nav ul li {
+    margin: 0 4rem;
+    margin-top: 1rem;
+}
+
+nav ul li a {
+    color: #bb86fc;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+.profile-pic-header {
+    height: 1.75rem;
+    width: 1.75rem;
+    margin-top: -0.35rem;
+}
+
+.flash-messages {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    width: 100%;
+    height: 5vh;
+    /* max-width: 600px; */
+    text-align: center;
+}
+
+.flash-message {
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    color: #fff;
+}
+
+.flash-message.success {
+    background-color: #4caf50;
+}
+
+.flash-message.error {
+    background-color: #f44336;
+}
+
+.flash-message.warning {
+    background-color: #ff9800;
+}
+
+.flash-message.info {
+    background-color: #2196f3;
+}
+
+.green {
+    background-color: #4CAF50;
+}
+
+.red {
+    background-color: #f44336;
+}
+
+.green:hover {
+    background-color: #388E3C;
+}
+
+.red:hover {
+    background-color: #d32f2f;
+}
+
+.action-btn{
+    margin: 0 0.15rem 0 0.15rem; 
+}

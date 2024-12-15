@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+
+{% block title %} HomeOne - Admin - Manage Professional {% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="/static/admin_manage_profs.css">
+{% endblock %}
+
+{% block content %}
+<div class="header">
+    <div class="nav-logo">
+        <h4>Welcome to Admin!</h4>
+    </div>
+    <div class="navbar">
+        <nav>
+            <ul>
+                <li>
+                    <a href="/admin_home">Home</a>
+                </li>
+                <li>
+                    <a href="/search_admin.html">Search</a>
+                </li>
+                <li>
+                    <a href="/admin_login.html">Logout</a>
+                </li>
+                <li>
+                    <a href="/user_profile"><img class="profile-pic-header" src="https://freesvg.org/img/abstract-user-flat-4.png" alt="user_profile"></a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+
+<div class="container">
+
+    <div class="search-bar">
+        <label for="search">Search by :</label>
+        <form action="{{ url_for('main.admin_manage_profs') }}" method="get">
+            <input type="text" name="search_query" placeholder="Name/Experience/Service name">
+            <button type="submit">Search</button>
+        </form>
+        <span>Example: Plumbing</span>
+    </div>
+
+    <div class="section">
+        <h2>Submitted Profiles</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Experience (Yrs)</th>
+                        <th>Service Name</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% if new_prof %}
+                    {% for prof in new_prof %}
+                    <tr id="prof-{{ prof.id }}">
+                        <td>{{ prof.id }}</td>
+                        <td>{{ prof.name }}</td>
+                        <td>{{ prof.expy }}</td>
+                        <td>{{ prof.service }}</td>
+                        <td>
+                            {% if not prof.status %}
+                                Requested
+                            {% else %}
+                                {{ prof.status }}
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if prof.status == 'approved' or prof.status == 'blocked' or prof.status == 'unblocked' %}
+                                <form action="{{ url_for('main.admin_manage_profs') }}" method="post">
+                                    <input type="hidden" name="prof_id" value="{{ prof.id }}">
+                                    <button type="submit" name="action" value="block" class="action-btn green">Block</button>
+                                    <button type="submit" name="action" value="unblock" class="action-btn red">Unblock</button>
+                                </form>
+                            {% else %}
+                                <form action="{{ url_for('main.admin_manage_profs') }}" method="post">
+                                    <input type="hidden" name="prof_id" value="{{ prof.id }}">
+                                    <button type="submit" name="action" value="approve" class="action-btn green">Approve</button>
+                                    <button type="submit" name="action" value="reject" class="action-btn red">Reject</button>
+                                </form>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                    {% else %}
+                    <p>No professionals found!!</p>
+                    {% endif %}
+                </tbody>
+            </table>
+    </div>
+</div>
+
+{% endblock content %}
+

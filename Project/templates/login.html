@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %} HomeOne - LogIn {% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="/static/user_sign.css">
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+
+
+        <form method="POST">
+            <div class="signup">
+                <h3 class="title">User Login</h3>
+                <div class="text-input">
+                    <input type="text" name="username" placeholder="username">
+                </div>
+                <div class="text-input">
+                    <input type="password" name="pwd" placeholder="Password">
+                </div>
+                <div class="radio-input">
+                    <label>
+                        <input type="radio" name="role" value="2">Customer
+                    </label>
+                    <br>
+                    <label>
+                        <input type="radio" name="role" value="1">Service Professional
+                    </label>
+                </div>
+                <button type="submit" class="signin-btn">Login</button>
+                <div class="create">
+                    <a href="signup">Create Your Account</a>
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock %}

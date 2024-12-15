@@ -1,0 +1,85 @@
+/* General styles for dark mode */
+body {
+    /* font-family: Arial, sans-serif; */
+    background-color: #121212;
+    color: #E0E0E0;
+    padding: 0;
+    margin-top: 5rem;
+}
+
+/* Container for the content */
+.container {
+    width: 70rem;
+    padding: 20px;
+}
+
+/* Styling the search bar */
+.search-bar {
+    background-color: #1E1E1E;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 30px;
+}
+
+.search-bar label {
+    font-size: 18px;
+}
+
+.search-bar input {
+    height: 1.55rem;
+    width: 89%;
+    padding: 10px;
+    margin-top: 10px;
+    background-color: #292929;
+    border: none;
+    color: #E0E0E0;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.search-bar span {
+    display: block;
+    margin-top: 5px;
+    font-size: 14px;
+    color: #aaa;
+}
+
+/* Styling the best salon packages section */
+.packages h2 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.package-item {
+    background-color: #1E1E1E;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.package-info p {
+    margin: 0;
+    font-size: 16px;
+}
+
+button{
+    margin-left: 0.5rem;
+}
+
+/* .book-btn {
+    background-color: #E53935;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.book-btn:hover {
+    background-color: #c62828;
+} */

@@ -1,0 +1,108 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.search-bar {
+    background-color: #1E1E1E;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 30px;
+    width: 130%;
+    margin-top: 5rem;
+}
+
+.search-bar label {
+    font-size: 18px;
+}
+
+.search-bar input {
+    height: 1.55rem;
+    width: 82%;
+    padding: 10px;
+    margin-top: 10px;
+    background-color: #292929;
+    border: none;
+    color: #E0E0E0;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.search-bar span {
+    display: block;
+    margin-top: 5px;
+    font-size: 14px;
+    color: #aaa;
+}
+
+.search-bar button{
+    margin-left: 0.15rem;
+}
+
+
+/* General styles for dark mode */
+body {
+    background-color: #121212;
+    color: #E0E0E0;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    margin: 20px auto;
+    padding: 20px;
+    margin-top: -2rem;
+}
+
+h2 {
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+/* Section styling */
+.section {
+    margin-bottom: 30px;
+    padding: 15px;
+    background-color: #1e1e1e;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    width: 130%;
+}
+
+/* Table styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 10px;
+}
+
+table thead {
+    background-color: #333;
+}
+
+table thead th {
+    color: #ffffff;
+    padding: 10px;
+    text-align: left;
+}
+
+table tbody td {
+    padding: 10px;
+    border-bottom: 1px solid #444;
+}
+
+table tbody tr:nth-child(even) {
+    background-color: #222;
+}
+
+table tbody tr:nth-child(odd) {
+    background-color: #1a1a1a;
+}
+
+.action-btn{
+    padding: 0.5rem;
+    font-size: 1rem;
+    margin-top: -0.05rem;
+}

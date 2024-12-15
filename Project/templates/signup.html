@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+
+{% block title %} Signup {% endblock %}
+    
+{% block extra_css %}
+<link rel="stylesheet" href="/static/user_sign.css">
+{% endblock %}
+
+{% block content %}
+    
+<div class="container">
+        <form method="POST" enctype="multipart/form-data">
+            <div class="signup">
+                <h3 class="title">User Signup</h3>
+                <div class="text-input">
+                    <input type="text" name="name" placeholder="Name">
+                </div>
+                <div class="text-input">
+                    <input type="text" name="username" placeholder="username">
+                </div>
+                <div class="text-input">
+                    <input type="password" name="pwd" placeholder="Password">
+                </div>
+                <div class="text-input">
+                    <input type="password" name="confpwd" placeholder="Confirm Password">
+                </div>
+                <div id="address-input">
+                    <input type="text" name="address" placeholder="Residential Address">
+                </div>
+                <div class="radio-input">
+                    <label>
+                        <input type="radio" name="role" value="2" onclick="toggleUpload()">Customer
+                    </label>
+                    <br>
+                    <label>
+                        <input type="radio" name="role" value="1" onclick="toggleUpload()">Service Professional
+                    </label>
+                </div>
+                <div id="service_cat" style="display: none;">
+                    <label for="service-category">Select Service Category:</label>
+                    <select name="service-category" id="service-category">
+                        <option value="plumbing">Plumbing</option>
+                        <option value="electrical">Electrical</option>
+                        <option value="cleaning">Cleaning</option>
+                        <option value="gardening">Gardening</option>
+                    </select>
+                </div>
+                <div id="pdf-upload" style="display: none;">
+                    <input title="Upload Experience Cert" type="file" name="pdf" accept=".pdf">
+                </div>
+                <div class="expy" style="display: none;">
+                    <input type="text" name="expy" placeholder="Experience in Yrs">
+                </div>
+                <button type="submit" class="signin-btn">Signup</button>
+                <div class="create">
+                    <a href="login">Already Registered! Click here</a>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script>
+        function toggleUpload() {
+            const userRole = document.querySelector('input[name="role"]:checked');
+            const pdfUploadDiv = document.getElementById('pdf-upload');
+            const addressDiv = document.getElementById('address-input');
+            const serviceCatDiv = document.getElementById('service_cat');
+            const expyDiv = document.querySelector('.expy');
+
+            // const container = document.querySelector('.container');
+            // const h3 = document.querySelector('.title');
+            // const inputs = document.querySelectorAll('input[type="text"], input[type="password"], input[type="address"], input[type="file"], .radio-input');
+            // const file = document.querySelector('input[type="file"]');
+
+            if (userRole && userRole.value === '1') {
+                pdfUploadDiv.style.display = 'block';
+                serviceCatDiv.style.display = 'block';
+                expyDiv.style.display = 'block';
+
+                // container.style.height = '90vh';
+                // h3.style.marginTop = '-1rem';
+                // h3.innerText = 'Service Professional Signup';   
+                // file.style.marginBottom = '0.5rem';
+                // inputs.forEach(input => {
+                //     input.style.marginTop = '-0.5rem';
+                // });
+                // const originalStyles = {
+                // marginToph3: window.getComputedStyle(h3).marginTop,
+                // innerTextH3: h3.innerText,
+                // heightC: window.getComputedStyle(container).height,
+                // marginTopInp: window.getComputedStyle(inputs).marginTop,
+                // marginBottomFile: window.getComputedStyle(file).marginBottom,
+                // };
+                
+            } if (userRole && userRole.value === '2') {
+                pdfUploadDiv.style.display = 'none';
+                serviceCatDiv.style.display = 'none';
+                expyDiv.style.display = 'none';
+
+                // container.style.height = originalStyles.heightC;
+                // h3.style.marginTop = originalStyles.marginToph3;
+                // h3.innerText = originalStyles.innerTextH3;
+                // file.style.marginBottom = originalStyles.marginBottomFile;
+                // inputs.forEach(input => {
+                //     input.style.marginTop = originalStyles.marginTopInp;
+                // });
+            }
+        }
+        </script>
+
+{% endblock  %}

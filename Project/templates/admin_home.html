@@ -1,0 +1,134 @@
+{% extends 'base.html' %}
+
+{% block title %} HomeOne - Admin Home {% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="/static/admin_home.css">
+{% endblock %}
+
+{% block content %}
+<div class="header">
+    <div class="nav-logo">
+        <h4>Welcome to Admin!</h4>
+    </div>
+    <div class="navbar">
+        <nav>
+            <ul>
+                <li>
+                    <a href="/admin_home">Home</a>
+                </li>
+                <li>
+                    <a href="/admin_manage_profs">Search</a>
+                </li>
+                <li>
+                    <a href="/login">Logout</a>
+                </li>
+                <li>
+                    <a href="/user_profile"><img class="profile-pic-header" src="https://freesvg.org/img/abstract-user-flat-4.png" alt="user_profile"></a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+<div class="container">
+    <!-- Services Section -->
+    <div class="section">
+        <h2>Services</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Service Name</th>
+                    <th>Base Price</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for service_detail in service_details %}
+                <tr>
+                    <!-- <td><a href="ur">{{ service_detail.id }}</a></td> -->
+                    <td><a href="{{ url_for('main.manage_cat', id=service_detail.id) }}">{{ service_detail.id }}</a>
+                    </td>
+                    <td>{{ service_detail.name }}</td>
+                    <td>{{ service_detail.bp }}</td>
+                    <td>
+                        <button class="action-btn green"><a
+                                href="{{ url_for('main.manage_cat', id=service_detail.id) }}">Edit</a></button>
+                        <button class="action-btn red"><a href="{{ url_for('main.manage_cat', id=service_detail.id) }}">Delete</a></button>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <button class="add-btn"><a href="{{ url_for('main.manage_cat')}}">+ New Service</a></button>
+    </div>
+
+    <!-- Professionals Section -->
+    <div class="section">
+        <h2>Professionals</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Experience (Yrs)</th>
+                    <th>Service Name</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for prof in profs %}
+                <tr>
+                    <td>{{ prof.id }}</td>
+                    <td>{{ prof.name }}</td>
+                    <td>{{ prof.expy }}</td>
+                    <td>{{ prof.service }}</td>
+                    <td>
+                        {% if not prof.status %}
+                            Requested
+                        {% else %}
+                            {{ prof.status }}
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if not prof.status %}
+                            <button class="action-btn green"><a href="/admin_manage_profs">Approve</a></button>
+                            <button class="action-btn red"><a href="/admin_manage_profs">Reject</a></button>
+                        {% elif prof.status == 'approved' %}
+                            <button class="action-btn green"><a href="/admin_manage_profs">Block</a></button>
+                            <button class="action-btn red"><a href="/admin_manage_profs">Unblock</a></button>
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+                
+            </tbody>
+        </table>
+        <button class="add-btn"><a href="/admin_manage_profs">+ Edit</a></button>
+    </div>
+
+    <!-- Service Requests Section -->
+    <div class="section">
+        <h2>Service Requests</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Assigned Professional (if any)</th>
+                    <th>Requested Dt</th>
+                    <th>Status (R/A/C)</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for reqservice in req_services %}
+                    <td>{{ reqservice.id }}</td>
+                    <td>{{ reqservice.assigned_prof if reqservice.assigned_prof else 'N/A'}}</td>
+                    <td>{{ reqservice.reqDate }}</td>
+                    <td>{{ reqservice.status }}</td>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,170 @@
+body {
+    background-color: #121212; 
+    color: #e0e0e0; 
+    font-family: 'Righteous', sans-serif;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin-top: 10vh;
+}
+
+.manage_cart {
+    width: 90%;
+    max-width: 600px; 
+    background-color: #1e1e1e; 
+    border-radius: 8px;
+    padding: 2rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1, h2 {
+    color: #ffffff;
+    margin-bottom: 1rem;
+}
+
+.create-service > h2{
+    margin-top: -0.5rem;
+    margin-left: 35%;
+}
+
+.create-service, .existing-services {
+    width: 100%;
+    margin-bottom: 2rem;
+}
+
+.create-service > input[type="text"] {
+    width: 40rem;
+}
+
+.create_input, input[type="text"] {
+    background-color: #2c2c2c;
+    border: 1px solid #444;
+    border-radius: 4px;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    color: #e0e0e0;
+    font-size: 1rem;
+    font-family: 'Fira Code';
+    width: 95.75% ; 
+}
+
+.create_input:focus, input[type="text"]:focus {
+    border-color: #6200ea;
+    outline: none;
+}
+
+.existing-services input[type="text"], .existing-services input[type="number"] {
+    margin-bottom: .5rem;
+    width: 90%;
+}
+
+.service-buttons {
+    flex: 0 0 55%; 
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0.5rem;
+}
+
+.service-buttons form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+
+button {
+    background-color: #6200ea;
+    border: none;
+    border-radius: 4px;
+    padding: 0.75rem;
+    color: #ffffff;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-family: "Fira Code", monospace;
+    width: 100%;
+    border: 1px solid #444;
+    border-radius: 4px;
+    padding: 0.75rem;
+    color: #000000;
+    font-size: 1rem;
+    font-family: 'Fira Code';
+}
+
+
+.service-item {
+    background-color: #2c2c2c;
+    border-radius: 4px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: row; /* Ensure sections are stacked vertically */
+    justify-content: space-between;
+    align-items: center; /* Revert to original alignment */
+}
+
+.service-values {
+    flex: 0 0 40%; 
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 0.5rem;
+}
+
+.service-buttons {
+    flex: 0 0 55%; 
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    color: #ffffff;
+}
+
+.service-buttons form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.existing-services > input[type="text"],.existing-services input[type="number"] {
+    width: 90%;
+    background-color: #2c2c2c;
+    border: 1px solid #444;
+    border-radius: 4px;
+    padding: 0.75rem;
+    color: #e0e0e0;
+    font-size: 1rem;
+    font-family: 'Fira Code';
+}
+
+.service-values  {
+    margin-top: -9rem;
+    /* margin-bottom: 1rem; */
+}
+
+
+
+.flash-popup {
+    background-color: #b00020;
+    color: #ffffff;
+    padding: 0.75rem;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    text-align: center;
+    width: 100%;
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 1000;
+}
+
+h6 {
+    word-break: break-all;
+}

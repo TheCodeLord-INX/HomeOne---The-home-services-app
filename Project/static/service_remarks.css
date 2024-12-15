@@ -1,0 +1,140 @@
+body {
+    /* font-family: Arial, sans-serif; */
+    /* background-color: #f7f7f7; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    color: white;
+    margin-top: 1.75rem;
+}
+
+.container {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
+    padding: 50px;
+    padding-top: .5rem;
+    padding-bottom: 1.5rem;
+    width: 450px;
+    text-align: center;
+}
+
+.container h2 {
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.container h4 {
+    margin-bottom: 20px;
+}
+
+form{
+    margin-left: 2rem;
+}
+
+.form-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+}
+
+.form-row:nth-child(2) {
+    margin-top: -1rem;
+}
+
+.form-group {
+    flex: 1;
+    margin: 0 5px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.form-group input {
+    width: 80%;
+    padding: 6px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+input[type="date"], input[type="tel"], textarea {
+    font-family: 'Montserrat Alternates';
+    color: white;
+}
+
+.rating {
+    text-align: left;
+    margin-top: -2rem;
+    margin-bottom: 1rem;
+}
+
+.rating label {
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.rating span {
+    color: red;
+    font-size: 20px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.form-group-full {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.form-group-full textarea {
+    width: 88%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    resize: none;
+    height: 80px;
+}
+
+.button-group {
+    display: flex;
+    justify-content: space-between;
+}
+
+.button-group button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.button-group button.submit {
+    /* background-color: #007bff; */
+    color: white;
+}
+
+.button-group button.close {
+    /* background-color: #cafb99; */
+    color: rgb(255, 255, 255);
+    margin-right: 2.25rem;
+}
+
+.button-group button:hover {
+    opacity: 0.9;
+}
+
+input, textarea{
+    background-color: #2c2c2c;
+    outline: none;
+}
+textarea{
+    margin-top: 0.5rem;
+}

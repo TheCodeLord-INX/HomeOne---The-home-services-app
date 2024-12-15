@@ -1,0 +1,150 @@
+/* General Styles */
+body {
+    background-color: #121212; /* Dark background */
+    color: #FFFFFF; /* Light text */
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Profile Container */
+.profile-container {
+    background-color: #1E1E1E; /* Slightly lighter dark for contrast */
+    border: 1px solid #2A2A2A;
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Profile Header */
+.profile-header {
+    margin-bottom: 20px;
+}
+
+.profile-pic {
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    margin-bottom: 15px;
+    border: 2px solid #FFFFFF;
+}
+
+.profile-name {
+    font-size: 1.5em;
+    margin: 0;
+}
+
+.profile-username {
+    font-size: 1em;
+    color: #888888; /* Slightly lighter gray */
+    margin: 0;
+}
+
+/* Profile Details */
+.profile-details {
+    margin-top: 20px;
+}
+
+.detail-item {
+    display: flex;
+    align-items: center;
+    margin-top: -1rem;
+}
+
+.detail-label {
+    font-weight: bold;
+    text-align: left;
+    margin-left: 1rem;
+    font-size: 1em;
+    flex: 1;
+}
+
+.detail-value {
+    flex: 2;
+    text-align: left;
+    margin-left: 1.75rem;
+    color: #CCCCCC; /* Lighter gray for values */
+}
+
+.edit-icon {
+    color: #4CAF50; /* Green for edit icon */
+    text-decoration: none;
+    font-size: 1.2em;
+    margin-right:1rem;
+}
+
+.edit-icon:hover {
+    color: #76FF03;
+}
+
+/* Responsiveness */
+@media screen and (max-width: 500px) {
+    .profile-container {
+        padding: 15px;
+    }
+
+    .detail-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .edit-icon {
+        margin-left: 0;
+    }
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="address"],
+input[type="date"]
+{
+    background-color: #2c2c2c;
+    border: 1px solid #444;
+    border-radius: 4px;
+    color: #e0e0e0;
+    width: 70%;
+    height: 1rem;
+    margin-top: 1rem;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus,
+input[type="address"]:focus,
+input[type="date"]:focus {
+    border-color: #ffffff;
+    outline: none;
+}
+
+input[type="text"]::placeholder,
+input[type="password"]::placeholder,
+input[type="email"]::placeholder,
+input[type="address"]::placeholder,
+input[type="date"]::placeholder {
+    color: #e0e0e0;
+}
+
+input[type="date"]{
+    height: 2.5rem;
+    width: 80.5%;
+    font-family: 'Montserrat Alternates';
+    text-align: center;
+}
+
+.dob{
+    margin-top: 1rem;
+}
+
+button{
+    all: unset;
+}
+
+button:hover {
+    background: none;
+}

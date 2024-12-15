@@ -1,0 +1,53 @@
+body{
+    padding: 0;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: -10rem;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    margin-bottom: 4rem;
+}
+
+button{
+    width: 100%;
+    padding: .75rem;
+    margin-top: -0.25rem;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 10px;
+}
+
+table thead {
+    background-color: #333;
+}
+
+table thead th {
+    color: #ffffff;
+    padding: 10px;
+    text-align: left;
+}
+
+table tbody td {
+    padding: 10px;
+    border-bottom: 1px solid #444;
+}
+
+table tbody tr:nth-child(even) {
+    background-color: #222;
+}
+
+table tbody tr:nth-child(odd) {
+    background-color: #1a1a1a;
+}

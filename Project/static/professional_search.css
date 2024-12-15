@@ -1,0 +1,113 @@
+/* General styles for dark mode */
+body {
+    /* font-family: Arial, sans-serif; */
+    background-color: #121212;
+    color: #E0E0E0;
+    margin: 0;
+    padding: 0;
+}
+
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+/* Section titles */
+h2 {
+    /* color: #ffffff; */
+    margin-bottom: 15px;
+}
+
+/* Search Section */
+.search-section {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 30px;
+    padding: 15px;
+    background-color: #1e1e1e;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.search-bar select,
+.search-bar input,
+.search-bar .search-btn {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.search-bar select,
+.search-bar input {
+    background-color: #222;
+    color: #E0E0E0;
+    margin-top: 1rem;
+}
+
+.search-btn{
+    margin-top: -.05rem;
+}
+
+input[type="text"] {
+    width: 30rem;
+}
+
+select {
+    width: 10rem;
+}
+
+.search-bar .search-btn {
+    /* background-color: #4CAF50; */
+    color: #fff;
+    cursor: pointer;
+}
+
+/* .search-bar .search-btn:hover {
+    background-color: #388E3C;
+} */
+
+/* Results Section */
+.results-section {
+    padding: 15px;
+    background-color: #1e1e1e;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 10px;
+}
+
+table thead {
+    background-color: #333;
+}
+
+table thead th {
+    /* color: #ffffff; */
+    padding: 10px;
+    text-align: left;
+}
+
+table tbody td {
+    padding: 10px;
+    border-bottom: 1px solid #444;
+}
+
+table tbody tr:nth-child(even) {
+    background-color: #222;
+}
+
+table tbody tr:nth-child(odd) {
+    background-color: #1a1a1a;
+}

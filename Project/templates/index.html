@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %} HomeOne {% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="/static/index.css">
+{% endblock %}
+
+{% block content %}
+    
+<div class="header">
+    <div class="nav-logo">
+        <h4>HomeOne</h4>
+    </div>
+    <div class="navbar">
+        <nav>
+            <ul>
+                <li>
+                    <a href="/home">Home</a>
+                </li>
+                <li>
+                    <a href="/login">Search</a>
+                </li>
+                <li>
+                    <a href="{{ url_for('authentication.login') }}">LogIn/Signup</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+
+<div class="image">
+    <img src="https://www.radiancespace.com/home-cleaning-service/img/backgrounds/3.jpg" alt="">
+</div>
+        
+{% endblock  %}
+
+

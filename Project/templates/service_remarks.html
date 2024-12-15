@@ -1,0 +1,112 @@
+{% extends 'base.html' %}
+
+{% block title %} HomeOne - Service Remarks {% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="/static/service_remarks.css">
+{% endblock %}
+
+{% block content %}
+
+<div class="header">
+    <div class="nav-logo">
+        <h4>HomeOne</h4>
+    </div>
+    <div class="navbar">
+        <nav>
+            <ul>
+                <li>
+                    <a href="/user_home">Home</a>
+                </li>
+                <li>
+                    <a href="/find_service">Search</a>
+                </li>
+                <li>
+                    <a href="/login">Logout</a>
+                </li>
+                <li>
+                    <a href="/user_profile"><img class="profile-pic-header" src="https://freesvg.org/img/abstract-user-flat-4.png" alt="user_profile"></a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+    <div class="container">
+        <h2>Service Remarks</h2>
+        <h4>Request ID: xxx-xxx</h4>
+        <form method="post">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="serviceName">Service Name</label>
+                    <input type="text" id="serviceName" name="serviceName">
+                </div>
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <input type="text" id="description" name="description">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="date">Date</label>
+                    <input type="date" id="date" name="date">
+                </div>
+                <div class="form-group">
+                    <label for="contactNo">Contact No.</label>
+                    <input type="tel" id="contactNo" name="contactNo">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="professionalUname">Professional Username</label>
+                    <input type="text" id="professionalUname" name="professionalUname">
+                </div>
+                <div class="form-group">
+                    <label for="professionalName">Professional Name</label>
+                    <input type="text" id="professionalName" name="professionalName">
+                </div>
+            </div>
+            <div class="rating">
+                <label>Service Rating:</label>
+                <span class="star" data-rating="1">&#9733;</span>
+                <span class="star" data-rating="2">&#9733;</span>
+                <span class="star" data-rating="3">&#9733;</span>
+                <span class="star" data-rating="4">&#9733;</span>
+                <span class="star" data-rating="5">&#9733;</span>
+                <input type="hidden" name="rating" id="rating" value="0">
+                <style>
+                    .rating .star {
+                        color: #ddd;
+                        cursor: pointer;
+                        transition: color 0.2s;
+                    }
+                    .rating .star.active {
+                        color: #ff0000;
+                    }
+                </style>
+                <script>
+                    document.querySelectorAll('.star').forEach(star => {
+                        star.addEventListener('click', (e) => {
+                            const rating = e.target.dataset.rating;
+                            document.getElementById('rating').value = rating;
+                            document.querySelectorAll('.star').forEach(s => {
+                                s.classList.remove('active');
+                                if (s.dataset.rating <= rating) {
+                                    s.classList.add('active');
+                                }
+                            });
+                        });
+                    });
+                </script>
+            </div>
+            <div class="form-group-full">
+                <label for="remarks">Remarks (if any):</label>
+                <textarea id="remarks" name="remarks"></textarea>
+            </div>
+            <div class="button-group">
+                <button type="submit" class="submit">Submit</button>
+                <a href="/user_home"><button type="button" class="close">Close</button></a>
+            </div>
+        </form>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+
+{% block title %} HomeOne - Professional Search {% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="/static/professional_search.css">
+{% endblock %}
+
+{% block content %}
+<div class="header">
+    <div class="nav-logo">
+        <h4>Welcome to Professional!</h4>
+    </div>
+    <div class="navbar">
+        <nav>
+            <ul>
+                <li>
+                    <a href="/professional_home">Home</a>
+                </li>
+                <li>
+                    <a href="/professional_search">Search</a>
+                </li>
+                <li>
+                    <a href="login">Logout</a>
+                </li>
+                <li>
+                    <a href="/user_profile"><img class="profile-pic-header" src="https://freesvg.org/img/abstract-user-flat-4.png" alt="user_profile"></a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+    <div class="container">
+        <!-- Search Functionality -->
+        <div class="search-section">
+            <div class="search-bar">
+                <label for="search-by">Search by:</label>
+                <select id="search-by" name="search-by">
+                    <option value="date">Date</option>
+                    <option value="location">Location Name</option>
+                    <option value="pin">Pin Code</option>
+                </select>
+                <input type="text" placeholder="Enter search text (e.g., 07/08/2024)">
+                <button class="search-btn">Search</button>
+            </div>
+        </div>
+
+        <!-- Search Results -->
+        <div class="results-section">
+            <h2>Search Results</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Customer Name</th>
+                        <th>Contact Phone</th>
+                        <th>Location (with pin code)</th>
+                        <th>Date</th>
+                        <th>Rating</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Customer 1</td>
+                        <td>1234567890</td>
+                        <td>Location 1, 123456</td>
+                        <td>07/08/2024</td>
+                        <td>4.5</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Customer 2</td>
+                        <td>9876543210</td>
+                        <td>Location 2, 654321</td>
+                        <td>07/08/2024</td>
+                        <td>5.0</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,83 @@
+/* General styles for dark mode */
+body {
+    /* font-family: Arial, sans-serif; */
+    background-color: #121212;
+    color: #E0E0E0;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+/* Section titles */
+h2 {
+    /* color: #FFD700; */
+    margin-bottom: 10px;
+}
+
+/* Section styling */
+.section {
+    margin-bottom: 30px;
+    padding: 15px;
+    background-color: #1e1e1e;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Table styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 10px;
+}
+
+table thead {
+    background-color: #333;
+}
+
+table thead th {
+    /* color: #FFD700; */
+    padding: 10px;
+    text-align: left;
+}
+
+table tbody td {
+    padding: 10px;
+    border-bottom: 1px solid #444;
+}
+
+table tbody tr:nth-child(even) {
+    background-color: #222;
+}
+
+table tbody tr:nth-child(odd) {
+    background-color: #1a1a1a;
+}
+
+/* Button styling */
+.action-btn {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #fff;
+    font-size: 14px;
+    margin-right: 5px;
+    background-color: #4CAF50; /* Green for Accept */
+}
+
+.action-btn:hover {
+    background-color: #087f23;
+}
+
+.action-btn:last-of-type {
+    background-color: #FF4500; /* Red for Reject */
+}
+
+.action-btn:last-of-type:hover {
+    background-color: #b00020;
+}

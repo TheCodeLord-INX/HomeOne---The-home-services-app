@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block title %} HomeOne - Admin Search {% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="/static/search_admin.css">
+{% endblock %}
+
+{% block content %}
+    <div class="header">
+        <div class="nav-logo">
+            <h4>Welcome to Admin!</h4>
+        </div>
+        <div class="navbar">
+            <nav>
+                <ul>
+                    <li>
+                        <a href="/admin_home">Home</a>
+                    </li>
+                    <li>
+                        <a href="/admin_search">Search</a>
+                    </li>
+                    <li>
+                        <a href="/login">Logout</a>
+                    </li>
+                    <li>
+                        <a href="/user_profile"><img class="profile-pic-header" src="https://freesvg.org/img/abstract-user-flat-4.png" alt="user_profile"></a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <form action="">
+        <input type="text" name="search" id="search" placeholder="Search">
+        <select title="option-search" name="search_by" id="search_by">
+            <option value="accepted">Accepted</option>
+            <option value="requested">Requested</option>
+            <option value="closed">Closed</option>
+        <input type="submit" name="admin-prof-search" value="Search">
+    </form>
+    <table colspan="2">
+    <h3>Service requests</h3>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Assigned Professional</th>
+            <th>Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>1</td>
+            <td>John Doe</td>
+            <td>2022-01-01</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Jane Smith</td>
+            <td>2022-01-02</td>
+        </tr>
+    </tbody>
+</table>
+
+{% endblock %}

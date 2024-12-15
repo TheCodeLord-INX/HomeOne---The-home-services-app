@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+
+{% block title %} HomeOne - Admin - Manage Services {% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="/static/manage_cat.css">
+{% endblock %}
+
+{% block content %}
+<div class="header">
+    <div class="nav-logo">
+        <h4>Welcome to Admin!</h4>
+    </div>
+    <div class="navbar">
+        <nav>
+            <ul>
+                <li>
+                    <a href="/admin_home">Home</a>
+                </li>
+                <li>
+                    <a href="/admin_search">Search</a>
+                </li>
+                <li>
+                    <a href="/login">Logout</a>
+                </li>
+                <li>
+                    <a href="/user_profile"><img class="profile-pic-header" src="https://freesvg.org/img/abstract-user-flat-4.png" alt="user_profile"></a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+<div class="manage_cart">
+    <div class="create-service">
+        <h2>Create Service</h2>
+        <form method="POST" action="{{ url_for('main.manage_cat') }}">
+            <input class="create_input" type="text" name="create_service" placeholder="Service name" required />
+            <input class="create_input" type="number" name="create_bp" placeholder="Base Price" step="0.01" required>
+            <input class="create_input" type="text" name="create_desc" placeholder="Description" required>
+
+            <input class="create_input" type="text" name="create_pin" placeholder="Pincode" required>
+            <input class="create_input" type="text" name="create_location" placeholder="Location" required>
+            <input class="create_input" type="number" name="create_rating" placeholder="Rating" step="0.1" required>
+            <button type="submit" class="create_button">Create</button>
+        </form>
+    </div>
+
+    <h2>Existing Services</h2>
+    <div class="existing-services">
+        {% if services %} {% for service in services %}
+        <div class="service-item si-container">
+            <div class="service-values">
+                <h3>{{ service.name }}</h3>
+                <h5>{{ service.bp }}</h5>
+                <h5>{{ service.desc }}</h5>
+                <h5>{{ service.pin }}</h5>
+                <h5>{{ service.location }}</h5>
+                <h5>{{ service.rating }}</h5>
+            </div>
+            <div class="service-buttons">
+                <form method="POST" action="{{ url_for('main.manage_cat') }}">
+                    <input type="hidden" name="service_id" value="{{ service.id }}">
+                    <input type="text" name="new_service_name" placeholder="New Service name" value="{{ service.name }}"
+                        required />
+                    <input class="create_input" type="number" name="new_bp_name" placeholder="New Base Price"
+                        step="0.01" value="{{ service.bp }}" required>
+                    <input type="text" name="new_desc_name" placeholder="New Description" value="{{ service.desc }}">
+                    <input type="text" name="new_pincode_name" placeholder="New Pincode" value="{{ service.pin }}" required>
+                    <input type="text" name="new_location_name" placeholder="New Location" value="{{ service.location }}" required>
+                    <input type="number" name="new_rating_name" placeholder="New Rating" step="0.1" value="{{ service.rating }}" required>
+                    <button class="edit_button" name="edit_service" type="submit">Edit</button>
+                </form>
+
+                <form method="POST" class="remove_form" action="{{ url_for('main.manage_cat') }}">
+                    <input type="hidden" name="service_id" value="{{ service.id }}">
+                    <button class="remove_service" name="remove_service" onclick="showRemove()"
+                        type="submit">Remove</button>
+                </form>
+            </div>
+        </div>
+        {% endfor %} {% else %}
+        <p>No services found!!</p>
+        {% endif %}
+    </div>
+</div>
+
+{% with messages = get_flashed_messages(with_categories=true) %} {% if
+messages %} {% for category, message in messages %}
+<div class="flash-popup flash-message {{ category }}">{{ message }}</div>
+{% endfor %}
+<script>
+    setTimeout(function () {
+        var flashMessage = document.querySelector(".flash-popup");
+        if (flashMessage) {
+            flashMessage.remove();
+        }
+    }, 5000); // 5 seconds
+</script>
+{% endif %} {% endwith %}
+
+{% endblock content %}
