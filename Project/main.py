@@ -5,6 +5,11 @@ from .models import User, Services, ServiceRemarks, ServiceRequests  # Import Se
 from flask_login import login_required, current_user
 from datetime import datetime
 
+# #import for chart
+# import matplotlib.pyplot as plt
+# import io
+# import base64
+
 main = Blueprint('main', __name__)
 
 
